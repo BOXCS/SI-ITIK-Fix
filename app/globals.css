@@ -348,3 +348,142 @@
 .PhoneInputInput::placeholder {
   color: #1a1d21;
 }
+
+/* Custom CSS */
+.underline-animation {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-animation::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #D05805; /* Warna underline */
+  transition: width 0.3s ease;
+}
+
+.underline-animation:hover::after {
+  width: 100%;
+}
+
+/* Container for centering the header */
+.container {
+  width: 100%; /* Memastikan container memenuhi lebar penuh */
+  padding: 0; /* Menghapus padding jika ada */
+  box-sizing: border-box; /* Menghindari perhitungan padding dan border di luar lebar */
+}
+
+/* Header layout styling */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Memastikan header memenuhi lebar penuh */
+  box-sizing: border-box;
+  min-height: 880px; /* Tinggi minimum yang sudah ditetapkan */
+  background-color: #f9f9f9;
+}
+
+/* Info section styling */
+.info {
+  text-align: center;
+  padding: 2rem; /* Padding untuk pemisahan */
+}
+
+.info h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.info h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.info p {
+  white-space: normal; /* Mengizinkan teks untuk membungkus ke baris berikutnya */
+  word-wrap: break-word; /* Membungkus kata jika terlalu panjang untuk muat dalam satu baris */
+  overflow-wrap: break-word; /* Menghindari teks keluar dari kontainer */
+  max-width: 600px; /* Mengatur lebar maksimal paragraf agar tidak terlalu lebar */
+  font-size: medium;
+}
+
+.btn-coba {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #D05805;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+/* Slider container styling */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* Adjust as needed */
+  margin-top: 2rem;
+}
+
+/* Slider styling */
+.slider {
+  display: flex;
+  overflow: hidden;
+}
+
+.images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.image.left {
+  filter: blur(2px);
+  transform: scale(0.8) translateY(10px);
+}
+
+.image.right {
+  filter: blur(4px);
+  transform: scale(0.6) translateY(20px);
+}
+
+.image.active {
+  width: 200px;
+  filter: none;
+  transform: scale(1) translateY(0);
+}
+
+/* Arrow styling */
+.arrow {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 1rem; /* Horizontal position from the left edge */
+  top: 25rem;
+}
+
+.arrow.right {
+  right: 1rem; /* Horizontal position from the right edge */
+  top: 25rem;
+}
