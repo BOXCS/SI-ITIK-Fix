@@ -371,27 +371,28 @@
 }
 
 /* Container for centering the header */
-.container {
-  width: 100%; /* Memastikan container memenuhi lebar penuh */
-  padding: 0; /* Menghapus padding jika ada */
-  box-sizing: border-box; /* Menghindari perhitungan padding dan border di luar lebar */
-}
-
-/* Header layout styling */
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%; /* Memastikan header memenuhi lebar penuh */
+.navbar {
+  width: 95%; /* Memastikan container memenuhi lebar penuh */
+  padding: 0;
   box-sizing: border-box;
-  min-height: 880px; /* Tinggi minimum yang sudah ditetapkan */
-  background-color: #f9f9f9;
 }
 
-/* Info section styling */
+/* Main container */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Pastikan container menggunakan seluruh lebar layar */
+  height: 100%; /* Ketinggian penuh dari layar */
+  padding: 2rem; /* Spasi di sekitar elemen */
+  box-sizing: border-box; /* Termasuk padding dalam ukuran total */
+}
+
+/* Info Section */
 .info {
-  text-align: center;
-  padding: 2rem; /* Padding untuk pemisahan */
+  width: 50%;
+  text-align: left;
+  padding-right: 2rem;
 }
 
 .info h2 {
@@ -400,17 +401,15 @@
 }
 
 .info h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-top: 0.5rem;
 }
 
 .info p {
-  white-space: normal; /* Mengizinkan teks untuk membungkus ke baris berikutnya */
-  word-wrap: break-word; /* Membungkus kata jika terlalu panjang untuk muat dalam satu baris */
-  overflow-wrap: break-word; /* Menghindari teks keluar dari kontainer */
-  max-width: 600px; /* Mengatur lebar maksimal paragraf agar tidak terlalu lebar */
-  font-size: medium;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  max-width: 500px;
 }
 
 .btn-coba {
@@ -424,66 +423,189 @@
   margin-top: 1rem;
 }
 
-/* Slider container styling */
+/* Slider Section */
 .slider-container {
+  width: 50%;
   position: relative;
-  width: 100%;
-  max-width: 1000px; /* Adjust as needed */
-  margin-top: 2rem;
 }
 
-/* Slider styling */
 .slider {
   display: flex;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .images {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%; /* Pastikan lebar slider penuh */
 }
 
 .image {
-  width: 150px;
+  width: 600px; /* Ukuran gambar yang lebih besar agar tidak terpotong */
   height: auto;
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
 
-.image.left {
-  filter: blur(2px);
-  transform: scale(0.8) translateY(10px);
-}
-
 .image.right {
   filter: blur(4px);
-  transform: scale(0.6) translateY(20px);
+  transform: scale(0.8) translateX(50px);
 }
 
 .image.active {
-  width: 200px;
   filter: none;
-  transform: scale(1) translateY(0);
+  transform: scale(1) translateX(0);
 }
 
-/* Arrow styling */
+/* Arrows */
 .arrow {
   background: transparent;
   border: none;
   font-size: 2rem;
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 90%;
   transform: translateY(-50%);
-  z-index: 10;
 }
 
 .arrow.left {
-  left: 1rem; /* Horizontal position from the left edge */
-  top: 25rem;
+  left: -40rem;
 }
 
 .arrow.right {
-  right: 1rem; /* Horizontal position from the right edge */
-  top: 25rem;
+  right: -2rem;
 }
+
+/* Lingkaran Latar Belakang dengan Gradien dan Blur yang Lebih Terlihat */
+.slider-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px; /* Perbesar lingkaran untuk efek yang lebih terlihat */
+  height: 500px;
+  background: radial-gradient(circle, rgba(208,88,5,0.8) 0%, rgba(249,202,150,0.6) 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  filter: blur(80px); /* Kurangi blur agar gradien lebih jelas */
+}
+
+.slider-container {
+  position: relative;
+  z-index: 1; /* Pastikan slider tetap berada di atas lingkaran */
+}
+
+/* Section Tentang Kami */
+.tentang-kami {
+  background-color: #F9C994;
+  padding: 3rem 0;
+}
+
+.tentang-kami-info h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.tentang-kami-info p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* Card */
+.card {
+  display: flex;
+  justify-content: space-between; /* Menempatkan konten dan panah di ujung card */
+  align-items: center; /* Menjaga elemen pada vertikal tengah */
+  border-radius: 20px;
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.dropdown-arrow:hover {
+  color: #D05805; /* Warna saat hover, sesuai dengan tema */
+}
+
+/* Section Fitur Utama */
+.fima-heading {
+  text-align: center;
+  font-size: 4.5rem;
+}
+
+.fitur-utama h2 {
+  margin-bottom: 4rem;
+}
+
+.fima-container {
+  display: grid;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.fima-container a {
+  font-size: 3rem;
+}
+
+.fima-container .fima-box {
+  position: relative;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem #D05805;
+  overflow: hidden;
+  display: flex;
+  height: 200px; /* Atur tinggi box jika perlu */
+}
+
+.fima-box img {
+  width: 100%;
+  height: 100%; /* Memastikan gambar memenuhi box */
+  object-fit: cover; /* Menyesuaikan gambar agar tidak distorsi */
+  transition: .5s ease;
+}
+
+.fima-box:hover img {
+  transform: scale(1.1);
+}
+
+.fima-box .fima-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, .1), #F9C994);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 4rem;
+  transform: translateY(100%);
+  transition: .5s ease;
+}
+
+.fima-box:hover .fima-layer {
+  transform: translateY(0);
+}
+
+.fima-layer h4 {
+  font-size: 2rem;
+}
+
+.fima-layer p {
+  font-size: 1.2rem;
+  margin: .3rem 0 1rem;
+}
+
